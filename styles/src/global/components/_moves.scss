@@ -3,8 +3,7 @@
 .cell--advanced-moves,
 .cell--special-moves,
 .cell--other-moves,
-.cell--equipment,
-.cell--spells {
+.cell--equipment {
 
   .items-list {
     padding: 0;
@@ -130,11 +129,5 @@
       text-shadow: 0 0 5px rgba($c-navy-up, 0.25);
       cursor: pointer;
     }
-  }
-}
-
-.cell--spells {
-  .unprepared {
-    background-color: $c-pink;
   }
 }

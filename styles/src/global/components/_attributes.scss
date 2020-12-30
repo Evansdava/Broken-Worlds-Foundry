@@ -108,10 +108,10 @@
     }
   }
 
-  .cell--ac,
-  .cell--hp,
-  .cell--weight,
-  .cell--coin {
+  .cell--armor,
+  .cell--stamina,
+  .cell--wounds,
+  .cell--wealth {
     grid-column: span 3;
   }
 
@@ -156,28 +156,6 @@
     .cell__title input {
       background-color: $ct-white;
       color: $c-white;
-    }
-  }
-
-  .encumbered {
-    .cell__title {
-      background: $c-orange;
-      color: $c-white;
-
-    }
-
-    input[name="data.attributes.weight.value"] {
-      color: $c-orange;
-    }
-  }
-
-  .overencumbered {
-    .cell__title {
-      background: $c-red;
-    }
-
-    input[name="data.attributes.weight.value"] {
-      color: $c-red;
     }
   }
 }

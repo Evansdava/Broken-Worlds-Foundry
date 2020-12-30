@@ -8,14 +8,6 @@ BW.abilities = {
   "mind": "BW.AbilityMind",
 };
 
-BW.debilities = {
-  "body": "BW.DebilityBody",
-  "reflex": "BW.DebilityReflex",
-  "heat": "BW.DebilityHeat",
-  "breath": "BW.DebilityBreath",
-  "mind": "BW.DebilityMind",
-};
-
 export class BwClassList {
   static async getClasses(labels_only = true) {
     // First, retrieve any custom or overridden classes so that we can

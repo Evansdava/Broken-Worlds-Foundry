@@ -36,7 +36,7 @@
     }
   }
 
-  .directory-list--dw {
+  .directory-list--bw {
     padding: 0;
 
     .directory-item {
@@ -155,7 +155,8 @@
     }
   }
 
-  .ct-item--hp,
+  .ct-item--wounds,
+  .ct-item--stamina,
   .ct-item--armor {
     flex: 0 0 32px;
   }

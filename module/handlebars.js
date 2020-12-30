@@ -1,4 +1,4 @@
-export class DwRegisterHelpers {
+export class BwRegisterHelpers {
   static init() {
     Handlebars.registerHelper('concat', function() {
       var outStr = '';
@@ -14,7 +14,7 @@ export class DwRegisterHelpers {
       return str.toLowerCase();
     });
 
-    Handlebars.registerHelper('dwTags', function(tagsInput) {
+    Handlebars.registerHelper('bwTags', function(tagsInput) {
       const tags = JSON.parse(tagsInput);
       let output = '<div class="tags">';
       for (let tag of tags) {

@@ -8,11 +8,11 @@
       {{/if}}
     </header>
 
-    <div class="grid grid-3col">
+    <div class="grid grid-2col">
 
       {{#if races}}
         <section class="cell cell--races">
-          <h2 class="cell__title">{{localize "DW.ChooseRace"}}</h2>
+          <h2 class="cell__title">{{localize "BW.ChooseRace"}}</h2>
           <ul class="selection-list">
             {{#each races as |race key|}}
               <li>
@@ -29,28 +29,9 @@
         </section>
       {{/if}}
 
-      {{#if alignments}}
-        <section class="cell cell--alignments">
-          <h2 class="cell__title">{{localize "DW.ChooseAlignment"}}</h2>
-          <ul class="selection-list">
-            {{#each alignments as |alignment key|}}
-              <li>
-                <div class="selection-control">
-                  <input type="radio" name="alignment-selection" data-alignment="{{key}}">
-                </div>
-                <div class="selection-content">
-                  <h3>{{alignment.label}}</h3>
-                  <p>{{alignment.description}}</p>
-                </div>
-              </li>
-            {{/each}}
-          </ul>
-        </section>
-      {{/if}}
-
       {{#if ability_scores}}
         <section class="cell cell--ability-scores">
-          <h2 class="cell__title">{{localize "DW.ChooseAbilityScores"}}</h2>
+          <h2 class="cell__title">{{localize "BW.ChooseAbilityScores"}}</h2>
           <ul class="selection-list">
             {{#each ability_labels as |ability ability_key|}}
             {{!-- {{#each ability_scores as |ability_score key|}} --}}
@@ -80,7 +61,7 @@
     {{else}}
       <div class="flexrow center">
         <section class="cell cell--ability-scores">
-          <h2 class="cell__title">{{localize "DW.ChooseAbilityScoresIncrease"}}</h2>
+          <h2 class="cell__title">{{localize "BW.ChooseAbilityScoresIncrease"}}</h2>
           <ul class="selection-list">
             {{#each ability_labels as |ability ability_key|}}
               <li>
@@ -125,16 +106,16 @@
 
     {{#if starting_moves}}
       <section class="cell cell--starting_moves">
-        <h1 class="cell__title">{{localize "DW.ChooseStartingMoves"}}</h1>
+        <h1 class="cell__title">{{localize "BW.ChooseStartingMoves"}}</h1>
         <ul class="selection-list">
           {{!-- Loop through each group of starting moves. --}}
           {{#each starting_move_groups as |moves group|}}
             {{!-- If a movegroup is defined, that means this should be an OR choice. --}}
             {{#if moves.0.data.data.moveGroup}}
-              <h2 class="cell__subtitle">{{localize "DW.ChooseStartingOne"}}</h2>
+              <h2 class="cell__subtitle">{{localize "BW.ChooseStartingOne"}}</h2>
             {{!-- Otherwise, everything is valid. --}}
             {{else}}
-              <h2 class="cell__subtitle">{{localize "DW.ChooseStartingAll"}}</h2>
+              <h2 class="cell__subtitle">{{localize "BW.ChooseStartingAll"}}</h2>
             {{/if}}
             {{!-- Create the grid and loop through moves within the groups. --}}
             <div class="grid grid-2col">
@@ -164,9 +145,9 @@
 
     {{#ifor advanced_moves_2 advanced_moves_6}}
       <section class="cell cell--advanced_moves">
-        <h1 class="cell__title">{{localize "DW.ChooseAdvancedMoves"}}</h1>
+        <h1 class="cell__title">{{localize "BW.ChooseAdvancedMoves"}}</h1>
         {{#if advanced_moves_2}}
-          <h2 class="cell__subtitle">{{localize "DW.ChooseAdvanced2"}}</h2>
+          <h2 class="cell__subtitle">{{localize "BW.ChooseAdvanced2"}}</h2>
           <ul class="selection-list grid grid-2col">
             {{#each advanced_moves_2 as |move key|}}
               <li>
@@ -183,7 +164,7 @@
         {{/if}}
 
         {{#if advanced_moves_6}}
-          <h2 class="cell__subtitle">{{localize "DW.ChooseAdvanced6"}}</h2>
+          <h2 class="cell__subtitle">{{localize "BW.ChooseAdvanced6"}}</h2>
           <ul class="selection-list grid grid-2col">
             {{#each advanced_moves_6 as |move key|}}
               <li>
@@ -200,34 +181,6 @@
         {{/if}}
       </section>
     {{/ifor}}
-
-
-    {{#if cast_spells}}
-    <section class="cell cell--spells">
-      <h1 class="cell__title">{{localize "DW.ChooseSpells"}}</h1>
-      {{#each spells as |spellsByCaster casterKey|}}
-        {{#if spellsByCaster.description }}
-          <div class="cell__description">{{{spellsByCaster.description}}}</div>
-        {{/if}}
-        {{#each spellsByCaster.spells as |spellsByLevel spellLevel|}}
-          <h2 class="cell__subtitle">{{localize (concat "DW.Spells" spellLevel)}}</h2>
-          <ul class="selection-list grid grid-2col">
-            {{#each spellsByLevel as |spell key|}}
-              <li>
-                <div class="selection-control">
-                  <input type="checkbox" {{#ifEquals spellLevel 0}}checked disabled="disabled"{{/ifEquals}} data-item-id="{{spell.data._id}}" data-type="spell">
-                </div>
-                <div class="selection-content">
-                  <h3>{{spell.data.name}}</h3>
-                  <div>{{{spell.data.data.description}}}</div>
-                </div>
-              </li>
-            {{/each}}
-          </ul>
-        {{/each}}
-      {{/each}}
-    </section>
-    {{/if}}
 
   </div>
 </form>

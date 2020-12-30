@@ -1,7 +1,7 @@
 // Example of how to import compendium content.
-async function importDwTags(content) {
+async function importBwTags(content) {
   // Reference a Compendium pack by it's callection ID
-  const pack = game.packs.find(p => p.collection === `dungeonworld.tags`);
+  const pack = game.packs.find(p => p.collection === `brokenworlds.tags`);
 
   // Create temporary Actor entities which impose structure on the imported data
   Item.createMany(content, { temporary: true }).then(items => {
@@ -15,32 +15,40 @@ async function importDwTags(content) {
 
 // Load an external JSON data file which contains data for import
 const content = [
-  { "name": "Applied", "type": "tag" },
-  { "name": "Awkward", "type": "tag" },
   { "name": "+1 ongoing", "type": "tag" },
   { "name": "-1 ongoing", "type": "tag" },
   { "name": "+1 forward", "type": "tag" },
   { "name": "-1 forward", "type": "tag" },
-  { "name": "Dangerous", "type": "tag" },
-  { "name": "Ration", "type": "tag" },
-  { "name": "Requires", "type": "tag" },
-  { "name": "Slow", "type": "tag" },
-  { "name": "Touch", "type": "tag" },
-  { "name": "Two-handed", "type": "tag" },
-  { "name": "Worn", "type": "tag" },
-  { "name": "Forceful", "type": "tag" },
-  { "name": "Ignores Armor", "type": "tag" },
-  { "name": "Messy", "type": "tag" },
-  { "name": "Precise", "type": "tag" },
-  { "name": "Reload", "type": "tag" },
-  { "name": "Stun", "type": "tag" },
-  { "name": "Thrown", "type": "tag" },
+  { "name": "Intimate", "type": "tag" },
   { "name": "Hand", "type": "tag" },
   { "name": "Close", "type": "tag" },
-  { "name": "Reach", "type": "tag" },
-  { "name": "Near", "type": "tag" },
   { "name": "Far", "type": "tag" },
-  { "name": "Clumsy", "type": "tag" }
+  { "name": "Extreme", "type": "tag" },
+  { "name": "Armor Piercing", "type": "tag" },
+  { "name": "Area", "type": "tag" },
+  { "name": "Brutal", "type": "tag" },
+  { "name": "Destructive", "type": "tag" },
+  { "name": "Focus", "type": "tag" },
+  { "name": "Fine", "type": "tag" },
+  { "name": "Forceful", "type": "tag" },
+  { "name": "Hidden", "type": "tag" },
+  { "name": "Infinite", "type": "tag" },
+  { "name": "Light", "type": "tag" },
+  { "name": "Lingering", "type": "tag" },
+  { "name": "Loading", "type": "tag" },
+  { "name": "Messy", "type": "tag" },
+  { "name": "Potent", "type": "tag" },
+  { "name": "Precise", "type": "tag" },
+  { "name": "Thrown", "type": "tag" },
+  { "name": "Unwieldy", "type": "tag" },
+  { "name": "Vicious", "type": "tag" },
+  { "name": "Reeling", "type": "tag" },
+  { "name": "Crippled", "type": "tag" },
+  { "name": "Stunned", "type": "tag" },
+  { "name": "Evasive", "type": "tag" },
+  { "name": "Unstoppable", "type": "tag" },
+  { "name": "Huge", "type": "tag" },
+  { "name": "Group", "type": "tag" }
 ];
 
-importDwTags(content);
+importBwTags(content);

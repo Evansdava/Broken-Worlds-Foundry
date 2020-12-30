@@ -1,9 +1,9 @@
-import { DwUtility } from "../utility.js";
+import { BwUtility } from "../utility.js";
 
 /**
  * Helper class to handle rendering the custom combat tracker.
  */
-export class CombatSidebarDw {
+export class CombatSidebarBw {
   // This must be called in the `init` hook in order for the other hooks to
   // fire correctly.
   startup() {
@@ -12,7 +12,7 @@ export class CombatSidebarDw {
     // Add support for damage rolls via event delegation.
     Hooks.on('ready', () => {
       // Damage rolls from the combat tracker.
-      $('body').on('click', '.dw-rollable', (event) => {
+      $('body').on('click', '.bw-rollable', (event) => {
         let $self = $(event.currentTarget);
         let $actorElem = $self.parents('.actor-elem');
         let combatant_id = $actorElem.length > 0 ? $actorElem.attr('data-combatant-id') : null;
@@ -52,7 +52,7 @@ export class CombatSidebarDw {
         if (dataset.dtype == 'Number') {
           value = Number(value);
           if (Number.isNaN(value)) {
-            $input.val(actor.data.data.attributes.hp.value);
+            $input.val(actor.data.data.attributes.stamina.value);
             return false;
           }
         }
@@ -60,9 +60,10 @@ export class CombatSidebarDw {
         // Prepare update data for the actor.
         let updateData = {};
         // If this started with a "+" or "-", handle it as a relative change.
+        // Change Stamina if present, otherwise change Wounds
         let operation = $input.val().match(/^\+|\-/g);
         if (operation) {
-          updateData[$input.attr('name')] = Number(actor.data.data.attributes.hp.value) + value;
+          updateData[$input.attr('name')] = Number(actor.data.data.attributes.stamina.value) > 0 ? Number(actor.data.data.attributes.stamina.value) + value : Number(actor.data.data.attributes.wounds.value) + value;
         }
         // Otherwise, set it absolutely.
         else {
@@ -222,7 +223,7 @@ export class CombatSidebarDw {
     // Update the move counter if a player made a move. Requires a GM account
     // to be logged in currently for the socket to work. If GM account is the
     // one that made the move, that happens directly in the actor update.
-    game.socket.on('system.dungeonworld', (data) => {
+    game.socket.on('system.brokenworlds', (data) => {
       if (!game.user.isGM) {
         return;
       }
@@ -281,12 +282,12 @@ export class CombatSidebarDw {
         let moveTotal = 0;
         if (combatants.character) {
           combatants.character.forEach(c => {
-            moveTotal = c.flags.dungeonworld ? moveTotal + Number(c.flags.dungeonworld.moveCount) : moveTotal;
+            moveTotal = c.flags.brokenworlds ? moveTotal + Number(c.flags.brokenworlds.moveCount) : moveTotal;
           });
         }
 
         // Get the custom template.
-        let template = 'systems/dungeonworld/templates/combat/combat.html';
+        let template = 'systems/brokenworlds/templates/combat/combat.html';
         let templateData = {
           combatants: combatants,
           moveTotal: moveTotal
@@ -376,9 +377,9 @@ export class CombatSidebarDw {
         combatant.editable = combatant.owner || game.user.isGM;
 
         // Build the radial progress circle settings for the template.
-        combatant.healthSvg = DwUtility.getProgressCircle({
-          current: combatant.actor.data.data.attributes.hp.value,
-          max: combatant.actor.data.data.attributes.hp.max,
+        combatant.healthSvg = BwUtility.getProgressCircle({
+          current: combatant.actor.data.data.attributes.wounds.value,
+          max: combatant.actor.data.data.attributes.wounds.max,
           radius: 16
         });
 

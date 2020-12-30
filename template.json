@@ -94,7 +94,7 @@
       },
       "details": {
         "look": "",
-        "playsheet": "",
+        "class": "",
         "race": {
           "value": "",
           "description": ""
@@ -105,6 +105,13 @@
       "templates": [
         "base"
       ],
+      "attributes": {
+        "Threat": {
+          "value": 0,
+          "base": 0,
+          "min": 0
+        }
+      },
       "tags": [],
       "tagsString": ""
     }
@@ -156,7 +163,6 @@
         "base"
       ],
       "races": [],
-      "alignments": [],
       "equipment": {},
       "hp": 3
     }

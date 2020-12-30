@@ -1,16 +1,16 @@
-import { DwItemSheet } from './item-sheet.js';
-import { DwUtility } from "../utility.js";
+import { BwItemSheet } from './item-sheet.js';
+import { BwUtility } from "../utility.js";
 
 /**
  * Extend the basic ItemSheet with some very simple modifications
  * @extends {ItemSheet}
  */
-export class DwClassItemSheet extends DwItemSheet {
+export class BwClassItemSheet extends BwItemSheet {
 
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["dungeonworld", "sheet", "item", "class"],
+      classes: ["brokenworlds", "sheet", "item", "class"],
       width: 960,
       height: 640,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "equipment" }],
@@ -22,7 +22,7 @@ export class DwClassItemSheet extends DwItemSheet {
 
   /** @override */
   get template() {
-    const path = "systems/dungeonworld/templates/items";
+    const path = "systems/brokenworlds/templates/items";
     return `${path}/${this.item.data.type}-sheet.html`;
   }
 
@@ -115,7 +115,7 @@ export class DwClassItemSheet extends DwItemSheet {
     // Filter items.
     let existing_items = [];
 
-    if (!DwUtility.isEmpty(itemData.data.equipment[groupId]['items'])) {
+    if (!BwUtility.isEmpty(itemData.data.equipment[groupId]['items'])) {
       existing_items = itemData.data.equipment[groupId]['items'];
     }
     else {

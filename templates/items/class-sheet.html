@@ -2,15 +2,15 @@
   <header class="sheet-header flexrow">
       <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
     <div class="header-fields">
-      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="{{localize "DW.Common.Name"}}"/></h1>
+      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="{{localize "BW.Common.Name"}}"/></h1>
     </div>
   </header>
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-navigation sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="description">{{localize "DW.Common.Description" }}</a>
-    <a class="item" data-tab="details">{{localize "DW.Common.Details" }}</a>
-    <a class="item" data-tab="equipment">{{localize "DW.Equipment"}}</a>
+    <a class="item" data-tab="description">{{localize "BW.Common.Description" }}</a>
+    <a class="item" data-tab="details">{{localize "BW.Common.Details" }}</a>
+    <a class="item" data-tab="equipment">{{localize "BW.Equipment"}}</a>
   </nav>
 
   {{!-- Sheet Body --}}
@@ -27,7 +27,7 @@
         {{!-- Races --}}
         <div class="cell resource">
           <div class="cell__title">
-            <label>{{localize "DW.Races"}}</label>
+            <label>{{localize "BW.Races"}}</label>
             <a class="class-control" data-action="create" data-type="races"><i class="fas fa-plus"></i></a>
           </div>
           <ul class="items-list">
@@ -42,51 +42,33 @@
           {{/each}}
           </ul>
         </div>
-        {{!-- Alignments --}}
-        <div class="cell resource">
-          <div class="cell__title">
-            <label>{{localize "DW.Alignments"}}</label>
-            <a class="class-control" data-action="create" data-type="alignments"><i class="fas fa-plus"></i></a>
-          </div>
-          <ul class="items-list">
-          {{#each data.alignments as |alignment id|}}
-            <li class="item alignment" data-index="{{id}}">
-              <div class="flexrow">
-                <input type="text" class="input input--title" name="data.alignments.{{id}}.label" value="{{alignment.label}}" data-dtype="string"/>
-                <a class="class-control" data-action="delete" data-type="alignments"><i class="fas fa-trash"></i></a>
-              </div>
-              <textarea class="alignment" name="data.alignments.{{id}}.description" rows="5" title="What's your alignment?" data-dtype="String">{{alignment.description}}</textarea>
-            </li>
-          {{/each}}
-          </ul>
-        </div>
         {{!-- Other fields. --}}
         <div class="cell resource resource--settings">
           <div class="resource-wrapper">
             <div class="cell__title">
-              <label>{{localize "DW.ClassSettings"}}</label>
+              <label>{{localize "BW.ClassSettings"}}</label>
             </div>
             <div class="resource">
-              <label>{{localize "DW.ClassBaseHp"}}</label>
-              <div class="help-text">{{localize "DW.ClassBaseHpHelp"}}</div>
-              <input type="text" name="data.hp" value="{{data.hp}}" data-dtype="Number">
+              <label>{{localize "BW.ClassBaseWounds"}}</label>
+              <div class="help-text">{{localize "BW.ClassBaseWoundsHelp"}}</div>
+              <input type="text" name="data.wounds" value="{{data.wounds}}" data-dtype="Number">
             </div>
             <div class="resource">
-              <label>{{localize "DW.ClassBaseLoad"}}</label>
-              <div class="help-text">{{localize "DW.ClassBaseLoadHelp"}}</div>
-              <input type="text" name="data.load" value="{{data.load}}" data-dtype="Number">
+              <label>{{localize "BW.ClassBaseStamina"}}</label>
+              <div class="help-text">{{localize "BW.ClassBaseStaminaHelp"}}</div>
+              <input type="text" name="data.stamina" value="{{data.stamina}}" data-dtype="Number">
             </div>
             <div class="resource">
-              <label>{{localize "DW.ClassDamage"}}</label>
-              <div class="help-text">{{localize "DW.ClassDamageHelp"}}</div>
+              <label>{{localize "BW.ClassDamage"}}</label>
+              <div class="help-text">{{localize "BW.ClassDamageHelp"}}</div>
               <select name="data.damage" data-dtype="String">
                 {{#select data.damage}}
                 <option value="">—</option>
-                <option value="d4">d4</option>
-                <option value="d6">d6</option>
-                <option value="d8">d8</option>
-                <option value="d10">d10</option>
-                <option value="d12">d12</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
                 {{/select}}
               </select>
             </div>
@@ -101,10 +83,10 @@
 
         <div class="cell resource resource--equipment-help flexrow">
           <div>
-            <p>{{localize "DW.ClassEquipmentGroupHelp"}}</p>
+            <p>{{localize "BW.ClassEquipmentGroupHelp"}}</p>
           </div>
           <div class="class-controls">
-            <button class="class-control" data-action="create" data-type="equipment-groups"><i class="fas fa-plus"></i> {{localize "DW.ClassAddEquipmentGroup"}}</button>
+            <button class="class-control" data-action="create" data-type="equipment-groups"><i class="fas fa-plus"></i> {{localize "BW.ClassAddEquipmentGroup"}}</button>
           </div>
         </div>
 
@@ -113,11 +95,11 @@
           {{#each data.equipment as |equipmentGroup groupId|}}
             <div class="cell resource equipment-group" data-index="{{groupId}}">
               <div class="cell__title">
-                <input type="text" name="data.equipment.{{groupId}}.label" placeholder="{{localize "DW.ClassEquipmentGroupPlaceholder"}}" value="{{equipmentGroup.label}}">
+                <input type="text" name="data.equipment.{{groupId}}.label" placeholder="{{localize "BW.ClassEquipmentGroupPlaceholder"}}" value="{{equipmentGroup.label}}">
                 <select name="data.equipment.{{groupId}}.mode">
                   {{#select equipmentGroup.mode}}
-                  <option value="radio">{{localize "DW.ChooseOne"}}</option>
-                  <option value="checkbox">{{localize "DW.ChooseAny"}}</option>
+                  <option value="radio">{{localize "BW.ChooseOne"}}</option>
+                  <option value="checkbox">{{localize "BW.ChooseAny"}}</option>
                   {{/select}}
                 </select>
                 <div class="class-controls">
@@ -132,7 +114,7 @@
                   {{/each}}
                   </ul>
                 {{else}}
-                <span>{{localize "DW.ClassEquipmentDropText"}}</span>
+                <span>{{localize "BW.ClassEquipmentDropText"}}</span>
                 {{/if}}
               </div>
             </div>

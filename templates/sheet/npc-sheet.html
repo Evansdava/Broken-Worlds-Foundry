@@ -18,28 +18,28 @@
       <section class="sheet-attributes sheet-attributes--npc">
 
         <div class="cell cell--damage">
-          <label class="cell__title damage-rollable rollable" data-roll="{{data.attributes.damage.value}}" data-label="{{localize "DW.Damage"}}" data-flavor="{{data.attributes.damage.piercing}}"><i class="fas fa-dice-d20"></i> {{localize "DW.Damage"}}</label>
+          <label class="cell__title damage-rollable rollable" data-roll="{{data.attributes.damage.value}}" data-label="{{localize "BW.Damage"}}" data-flavor="{{data.attributes.damage.piercing}}"><i class="fas fa-dice-d20"></i> {{localize "BW.Damage"}}</label>
           <input type="text" name="data.attributes.damage.value" value="{{data.attributes.damage.value}}" placeholder="e.g. 2d12+7" data-dtype="String"/>
           <input type="text" name="data.attributes.damage.piercing" value="{{data.attributes.damage.piercing}}" placeholder="e.g. 4 piercing" data-dtype="String"/>
         </div>
 
-        <div class="cell cell--ac">
-          <label class="cell__title">{{localize "DW.Armor"}}</label>
-          <input type="text" name="data.attributes.ac.value" value="{{data.attributes.ac.value}}" data-dtype="Number"/>
+        <div class="cell cell--armor">
+          <label class="cell__title">{{localize "BW.Armor"}}</label>
+          <input type="text" name="data.attributes.armor.value" value="{{data.attributes.armor.value}}" data-dtype="Number"/>
         </div>
 
-        <div class="cell cell--hp">
-          <label for="data.attributes.hp.value" class="cell__title">{{localize "DW.HP"}}</label>
+        <div class="cell cell--wounds">
+          <label for="data.attributes.wounds.value" class="cell__title">{{localize "BW.Wounds"}}</label>
           <div class="cell__counter">
-            <input type="text" name="data.attributes.hp.value" value="{{data.attributes.hp.value}}" data-dtype="Number"/>
+            <input type="text" name="data.attributes.wounds.value" value="{{data.attributes.wounds.value}}" data-dtype="Number"/>
             <span> / </span>
-            <input type="text" name="data.attributes.hp.max" value="{{data.attributes.hp.max}}" data-dtype="Number"/>
+            <input type="text" name="data.attributes.wounds.max" value="{{data.attributes.wounds.max}}" data-dtype="Number"/>
           </div>
         </div>
 
         <div class="cell cell--tags">
-          <label for="tag" class="control-label">{{localize "DW.Tags"}}</label>
-          <div class="help-text"><p>{{localize "DW.TagsHelp" }}</p></div>
+          <label for="tag" class="control-label">{{localize "BW.Tags"}}</label>
+          <div class="help-text"><p>{{localize "BW.TagsHelp" }}</p></div>
           <input type="hidden" name="data.tagsString" value="{{ data.tagsString }}" />
           <input name='data.tags' class='some_class_name' placeholder='write some tags' value='{{ data.tags }}'/>
         </div>
@@ -50,13 +50,13 @@
       <section class="sheet-body">
 
         <div class="cell cell--special-qualities">
-          <label class="cell__title">{{localize "DW.SpecialQualities"}}</label>
+          <label class="cell__title">{{localize "BW.SpecialQualities"}}</label>
           <input type="text" name="data.attributes.specialQualities.value" value="{{data.attributes.specialQualities.value}}" data-dtype="String"/>
         </div>
 
         {{!-- Main Tab --}}
-        <label class="cell__title">{{localize "DW.Description"}}</label>
-        {{!-- We're avoiding WYSIWYGs... for now... --}}
+        <label class="cell__title">{{localize "BW.Description"}}</label>
+        <!-- {{!-- We're avoiding WYSIWYGs... for now... --}} -->
         {{editor content=data.details.biography target="data.details.biography" button=true owner=owner editable=editable}}
         {{!-- <textarea class="biography" name="data.details.biography" rows="5" title="Hey there! Who are you!?"
                 data-dtype="String">{{#if data.details.biography}}{{data.details.biography}}{{/if}}</textarea> --}}

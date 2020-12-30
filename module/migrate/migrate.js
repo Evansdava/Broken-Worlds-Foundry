@@ -1,43 +1,40 @@
-export class MigrateDw {
+export class MigrateBw {
 
   static runMigration() {
     // Retrieve the version.
-    let version = game.settings.get('dungeonworld', 'systemMigrationVersion');
+    let version = game.settings.get('brokenworlds', 'systemMigrationVersion');
 
     // Update 1: Assign basic/special moves on actors.
     if (version < 1) {
       this.updateSpecialMoves();
       version++;
-      game.settings.set('dungeonworld', 'systemMigrationVersion', version);
+      game.settings.set('brokenworlds', 'systemMigrationVersion', version);
     }
   }
 
   static async updateSpecialMoves() {
     const basicMoves = [
-      'Aid or Interfere',
-      'Parley',
-      'Defend',
-      'Defy Danger',
-      'Discern Realities',
-      'Hack & Slash',
-      'Spout Lore',
-      'Volley'
+      'Channel Flame',
+      'Push',
+      'Reach Heaven Through Violence',
+      'Acuity',
+      'Agility',
+      'Bolster',
+      'Aid',
+      'Might'
     ];
 
     const specialMoves = [
-      'Bolster',
-      'Carouse',
-      'Encumbrance',
-      'End of Session',
-      'Last Breath',
-      'Level Up',
-      'Make Camp',
-      'Outstanding Warrants',
-      'Recover',
-      'Recruit',
-      'Supply',
-      'Take Watch',
-      'Undertake A Perilous Journey'
+      'Overcome',
+      'Knowledge',
+      'Meditation',
+      'Pry Secrets',
+      'Creation',
+      'Bend Will',
+      'Ply the Market',
+      'Gather Power',
+      'Train',
+      'End of Session'
     ];
 
     // Query actors.

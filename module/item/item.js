@@ -1,4 +1,4 @@
-import { DwUtility } from "../utility.js";
+import { BwUtility } from "../utility.js";
 
 export class ItemDw extends Item {
   /**
@@ -17,7 +17,7 @@ export class ItemDw extends Item {
       if (itemData.data.equipment) {
         for (let [group_key, group] of Object.entries(itemData.data.equipment)) {
           if (group) {
-            if (DwUtility.isEmpty(group['items'])) {
+            if (BwUtility.isEmpty(group['items'])) {
               group['items'] = [];
               group['objects'] = [];
             }
@@ -31,7 +31,7 @@ export class ItemDw extends Item {
     let obj = null;
     let itemData = this.data;
 
-    let items = await DwUtility.getEquipment(force_reload);
+    let items = await BwUtility.getEquipment(force_reload);
     let equipment = [];
 
     if (itemData.data.equipment) {
@@ -76,71 +76,34 @@ export class ItemDw extends Item {
           title: `Choose an ability`,
           content: `<p>Choose an ability for this <strong>${item.name}</strong> move.</p>`,
           buttons: {
-            str: {
-              label: 'STR',
-              callback: () => this.rollMove('str', actorData, data, templateData)
+            body: {
+              label: 'BODY',
+              callback: () => this.rollMove('body', actorData, data, templateData)
             },
-            dex: {
-              label: 'DEX',
-              callback: () => this.rollMove('dex', actorData, data, templateData)
+            reflex: {
+              label: 'REFLEX',
+              callback: () => this.rollMove('reflex', actorData, data, templateData)
             },
-            con: {
-              label: 'CON',
-              callback: () => this.rollMove('con', actorData, data, templateData)
+            heat: {
+              label: 'HEAT',
+              callback: () => this.rollMove('heat', actorData, data, templateData)
             },
-            int: {
-              label: 'INT',
-              callback: () => this.rollMove('int', actorData, data, templateData)
+            breath: {
+              label: 'BREATH',
+              callback: () => this.rollMove('breath', actorData, data, templateData)
             },
-            wis: {
-              label: 'WIS',
-              callback: () => this.rollMove('wis', actorData, data, templateData)
+            mind: {
+              label: 'MIND',
+              callback: () => this.rollMove('mind', actorData, data, templateData)
             },
-            cha: {
-              label: 'CHA',
-              callback: () => this.rollMove('cha', actorData, data, templateData)
-            }
           }
         }).render(true);
       }
-      // If this is a BOND roll, render a different prompt to let the user
-      // enter their bond value.
-      else if (data.roll == 'BOND') {
-        let template = 'systems/dungeonworld/templates/chat/roll-dialog.html';
-        let dialogData = {
-          title: item.name,
-          bond: null
-        };
-        const html = await renderTemplate(template, dialogData);
-        return new Promise(resolve => {
-          new Dialog({
-            title: `Enter your bond`,
-            content: html,
-            buttons: {
-              submit: {
-                label: 'Roll',
-                callback: html => {
-                  this.rollMove('BOND', actorData, data, templateData, html[0].querySelector("form"))
-                }
-              }
-            }
-          }).render(true);
-        })
 
-      }
       // Otherwise, grab the data from the move and pass it along.
       else {
         this.rollMove(data.roll.toLowerCase(), actorData, data, templateData);
       }
-    }
-    else if (item.type == 'spell') {
-      templateData = {
-        title: item.name,
-        trigger: null,
-        details: item.data.description
-      }
-      data.roll = item.data.rollFormula;
-      this.rollMove(data.roll, actorData, data, templateData);
     }
     else if (item.type == 'equipment') {
       templateData = {
@@ -160,7 +123,7 @@ export class ItemDw extends Item {
    */
   async rollMove(roll, actorData, dataset, templateData, form = null) {
     // Render the roll.
-    let template = 'systems/dungeonworld/templates/chat/chat-move.html';
+    let template = 'systems/brokenworlds/templates/chat/chat-move.html';
     // GM rolls.
     let chatData = {
       user: game.user._id,
@@ -171,18 +134,11 @@ export class ItemDw extends Item {
     if (rollMode === "selfroll") chatData["whisper"] = [game.user._id];
     if (rollMode === "blindroll") chatData["blind"] = true;
     // Handle dice rolls.
-    if (!DwUtility.isEmpty(roll)) {
+    if (!BwUtility.isEmpty(roll)) {
       // Roll can be either a formula like `2d6+3` or a raw stat like `str`.
       let formula = '';
-      // Handle bond (user input).
-      if (roll == 'BOND') {
-        formula = form.bond?.value ? `2d6+${form.bond.value}` : '2d6';
-        if (dataset.mod && dataset.mod != 0) {
-          formula += `+${dataset.mod}`;
-        }
-      }
       // Handle ability scores (no input).
-      else if (roll.match(/(\d*)d\d+/g)) {
+      if (roll.match(/(\d*)d\d+/g)) {
         formula = roll;
       }
       // Handle moves.
@@ -235,16 +191,16 @@ export class ItemDw extends Item {
     if (game.combat && game.combat.combatants) {
       let combatant = game.combat.combatants.find(c => c.actor.data._id == this.actor._id);
       if (combatant) {
-        let moveCount = combatant.flags.dungeonworld ? combatant.flags.dungeonworld.moveCount : 0;
+        let moveCount = combatant.flags.brokenworlds ? combatant.flags.brokenworlds.moveCount : 0;
         moveCount = moveCount ? Number(moveCount) + 1 : 1;
         // Emit a socket for the GM client.
         if (!game.user.isGM) {
-          game.socket.emit('system.dungeonworld', {
-            combatantUpdate: { _id: combatant._id, 'flags.dungeonworld.moveCount': moveCount }
+          game.socket.emit('system.brokenworlds', {
+            combatantUpdate: { _id: combatant._id, 'flags.brokenworlds.moveCount': moveCount }
           });
         }
         else {
-          await game.combat.updateCombatant({ _id: combatant._id, 'flags.dungeonworld.moveCount': moveCount });
+          await game.combat.updateCombatant({ _id: combatant._id, 'flags.brokenworlds.moveCount': moveCount });
           ui.combat.render();
         }
       }

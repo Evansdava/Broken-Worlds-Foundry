@@ -1,7 +1,7 @@
-import { BwUtility } from '../utility.js';
+// import { BwUtility } from '../utility.js';
 
 /**
- * Extends the basic Actor class for Dungeon World.
+ * Extends the basic Actor class for Broken Worlds
  * @extends {Actor}
  */
 export class ActorBw extends Actor {
@@ -31,31 +31,11 @@ export class ActorBw extends Actor {
       // abl.mod = Math.floor(abl.value * 0.4 - (abl.value < 11 ? 3.4 : 4.2));
 
       // Ability modifiers.
-      abl.mod = BwUtility.getAbilityMod(abl.value);
+      // abl.mod = BwUtility.getAbilityMod(abl.value);
+      abl.mod = abl.value
       // Add labels.
       abl.label = CONFIG.BW.abilities[a];
-      abl.debilityLabel = CONFIG.BW.debilities[a];
-      // Adjust mod based on debility.
-      if (abl.debility) {
-        abl.mod -= 1;
-      }
     }
-
-    // Calculate weight.
-    // let weight = 0;
-    // let items = actorData.items;
-    // if (items) {
-    //   let equipment = items.filter(i => i.type == 'equipment');
-    //   equipment.forEach(i => {
-    //     let itemQuantity = Number(i.data.quantity);
-    //     let itemWeight = Number(i.data.weight);
-    //     if (itemWeight > 0) {
-    //       weight = weight + (itemQuantity * itemWeight);
-    //     }
-    //   });
-    // }
-    // // Update the value.
-    // data.attributes.weight.value = weight;
   }
 
   /**
@@ -134,14 +114,7 @@ export class ActorBw extends Actor {
       // Roll can be either a formula like `2d6+3` or a raw stat like `str`.
       let formula = '';
       // Handle bond (user input).
-      if (roll == 'BOND') {
-        formula = form.bond.value ? `2d6+${form.bond.value}` : '2d6';
-        if (dataset.mod && dataset.mod != 0) {
-          formula += `+${dataset.mod}`;
-        }
-      }
-      // Handle ability scores (no input).
-      else if (roll.match(/(\d*)d\d+/g)) {
+      if (roll.match(/(\d*)d\d+/g)) {
         formula = roll;
       }
       // Handle moves.

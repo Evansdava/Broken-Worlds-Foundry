@@ -1,15 +1,15 @@
-import { DwClassList } from "../config.js";
+import { BwClassList } from "../config.js";
 
 /**
  * Extend the basic ItemSheet with some very simple modifications
  * @extends {ItemSheet}
  */
-export class DwItemSheet extends ItemSheet {
+export class BwItemSheet extends ItemSheet {
 
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["dungeonworld", "sheet", "item"],
+      classes: ["brokenworlds", "sheet", "item"],
       width: 520,
       height: 480,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "details" }],
@@ -21,7 +21,7 @@ export class DwItemSheet extends ItemSheet {
 
   /** @override */
   get template() {
-    const path = "systems/dungeonworld/templates/items";
+    const path = "systems/brokenworlds/templates/items";
     return `${path}/${this.item.data.type}-sheet.html`;
   }
 
@@ -32,7 +32,7 @@ export class DwItemSheet extends ItemSheet {
     const data = super.getData();
     data.dtypes = ["String", "Number", "Boolean"];
     // Add classlist.
-    data.data.classlist = await DwClassList.getClasses();
+    data.data.classlist = await BwClassList.getClasses();
 
     // Handle preprocessing for tagify data.
     if (data.entity.type == 'equipment') {
@@ -184,7 +184,7 @@ export class DwItemSheet extends ItemSheet {
       else if (field_type == 'equipment-groups') {
         const field_values = this.object.data.data.equipment;
         const nk = Object.keys(field_values).length + 1;
-        let template = '/systems/dungeonworld/templates/items/_class-sheet--equipment-group.html';
+        let template = '/systems/brokenworlds/templates/items/_class-sheet--equipment-group.html';
         let templateData = {
           group: nk
         };
@@ -272,18 +272,18 @@ export class DwItemSheet extends ItemSheet {
       }
     }
 
-    // Re-index the alignments.
-    i = 0;
-    if (typeof formObj.data.alignments == 'object') {
-      for (let [k, v] of Object.entries(formObj.data.alignments)) {
-        if (i != k) {
-          formObj.data.alignments[i] = v;
-          delete formObj.data.alignments[k];
-          deletedKeys.push(`alignments.${k}`);
-        }
-        i++;
-      }
-    }
+    // // Re-index the alignments.
+    // i = 0;
+    // if (typeof formObj.data.alignments == 'object') {
+    //   for (let [k, v] of Object.entries(formObj.data.alignments)) {
+    //     if (i != k) {
+    //       formObj.data.alignments[i] = v;
+    //       delete formObj.data.alignments[k];
+    //       deletedKeys.push(`alignments.${k}`);
+    //     }
+    //     i++;
+    //   }
+    // }
 
     // Remove deleted keys.
     for (let k of deletedKeys) {
@@ -301,7 +301,7 @@ export class DwItemSheet extends ItemSheet {
       _id: this.object._id,
       "data.equipment": formObj.data.equipment,
       "data.races": formObj.data.races,
-      "data.alignments": formObj.data.alignments
+      // "data.alignments": formObj.data.alignments
     });
 
 

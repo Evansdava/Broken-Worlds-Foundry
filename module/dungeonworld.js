@@ -8,16 +8,16 @@
 // Import Modules
 import { BW } from "./config.js";
 import { BwClassList } from "./config.js";
-import { ActorDw } from "./actor/actor.js";
-import { ItemDw } from "./item/item.js";
-import { DwItemSheet } from "./item/item-sheet.js";
-import { DwActorSheet } from "./actor/actor-sheet.js";
-import { DwActorNpcSheet } from "./actor/actor-npc-sheet.js";
-import { DwClassItemSheet } from "./item/class-item-sheet.js";
-import { DwRegisterHelpers } from "./handlebars.js";
-import { DwUtility } from "./utility.js";
-import { CombatSidebarDw } from "./combat/combat.js";
-import { MigrateDw } from "./migrate/migrate.js";
+import { ActorBw } from "./actor/actor.js";
+import { ItemBw } from "./item/item.js";
+import { BwItemSheet } from "./item/item-sheet.js";
+import { BwActorSheet } from "./actor/actor-sheet.js";
+import { BwActorNpcSheet } from "./actor/actor-npc-sheet.js";
+import { BwClassItemSheet } from "./item/class-item-sheet.js";
+import { BwRegisterHelpers } from "./handlebars.js";
+import { BwUtility } from "./utility.js";
+import { CombatSidebarBw } from "./combat/combat.js";
+import { MigrateBw } from "./migrate/migrate.js";
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
@@ -26,47 +26,47 @@ import { MigrateDw } from "./migrate/migrate.js";
 Hooks.once("init", async function() {
   console.log(`Initializing Dungeon World!`);
 
-  game.dungeonworld = {
-    ActorDw,
-    ItemDw,
+  game.brokenworlds = {
+    ActorBw,
+    ItemBw,
     rollItemMacro,
-    DwUtility,
-    MigrateDw,
+    BwUtility,
+    MigrateBw,
   };
 
   // TODO: Extend the combat class.
   // CONFIG.Combat.entityClass = CombatDw;
 
   CONFIG.BW = BW;
-  CONFIG.Actor.entityClass = ActorDw;
-  CONFIG.Item.entityClass = ItemDw;
+  CONFIG.Actor.entityClass = ActorBw;
+  CONFIG.Item.entityClass = ItemBw;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("dungeonworld", DwActorSheet, {
+  Actors.registerSheet("brokenworlds", BwActorSheet, {
     types: ['character'],
     makeDefault: true
   });
-  Actors.registerSheet("dungeonworld", DwActorNpcSheet, {
+  Actors.registerSheet("brokenworlds", BwActorNpcSheet, {
     types: ['npc'],
     makeDefault: true
   });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("dungeonworld", DwItemSheet, { makeDefault: false });
-  Items.registerSheet("dungeonworld", DwClassItemSheet, {
+  Items.registerSheet("brokenworlds", BwItemSheet, { makeDefault: false });
+  Items.registerSheet("brokenworlds", BwClassItemSheet, {
     types: ['class'],
     makeDefault: true
   });
 
-  DwRegisterHelpers.init();
+  BwRegisterHelpers.init();
 
-  let combatDw = new CombatSidebarDw();
-  combatDw.startup();
+  let combatBw = new CombatSidebarBw();
+  combatBw.startup();
 
   /**
    * Track the system version upon which point a migration was last applied
    */
-  game.settings.register("dungeonworld", "systemMigrationVersion", {
+  game.settings.register("brokenworlds", "systemMigrationVersion", {
     name: "System Migration Version",
     scope: "world",
     config: false,
@@ -75,7 +75,7 @@ Hooks.once("init", async function() {
   });
 
   // Configurable system settings.
-  game.settings.register("dungeonworld", "itemIcons", {
+  game.settings.register("brokenworlds", "itemIcons", {
     name: game.i18n.localize("BW.Settings.itemIcons.name"),
     hint: game.i18n.localize("BW.Settings.itemIcons.hint"),
     scope: 'client',
@@ -84,12 +84,12 @@ Hooks.once("init", async function() {
     default: true
   });
 
-  DwUtility.replaceRollData();
+  BwUtility.replaceRollData();
 });
 
 Hooks.once("ready", async function() {
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
-  Hooks.on("hotbarDrop", (bar, data, slot) => createDwMacro(data, slot));
+  Hooks.on("hotbarDrop", (bar, data, slot) => createBwMacro(data, slot));
 
   BW.classlist = await BwClassList.getClasses();
   CONFIG.BW = BW;
@@ -99,7 +99,7 @@ Hooks.once("ready", async function() {
   $('html').addClass(`lang-${lang}`);
 
   // Run migrations.
-  MigrateDw.runMigration();
+  MigrateBw.runMigration();
 });
 
 Hooks.on('renderChatMessage', (data, html, options) => {
@@ -126,7 +126,7 @@ Hooks.once("setup", function() {
 
   // Localize CONFIG objects once up-front
   const toLocalize = [
-    "abilities", "debilities"
+    "abilities"
   ];
   for (let o of toLocalize) {
     CONFIG.BW[o] = Object.entries(CONFIG.BW[o]).reduce((obj, e) => {
@@ -142,11 +142,11 @@ Hooks.once("setup", function() {
 Hooks.on('createActor', async (actor, options, id) => {
   // Allow the character to levelup up when their level changes.
   if (actor.data.type == 'character') {
-    actor.setFlag('dungeonworld', 'levelup', true);
+    actor.setFlag('brokenworlds', 'levelup', true);
 
     // Get the item moves as the priority.
     let moves = game.items.entities.filter(i => i.type == 'move' && i.data.data.moveType == 'basic');
-    let pack = game.packs.get(`dungeonworld.basic-moves`);
+    let pack = game.packs.get(`brokenworlds.basic-moves`);
     let compendium = pack ? await pack.getContent() : [];
     const actorMoves = actor.data.items.filter(i => i.type == 'move');
     // Get the compendium moves next.
@@ -190,7 +190,7 @@ Hooks.on('preUpdateActor', (actor, data, options, id) => {
     // Allow the character to levelup up when their level changes.
     if (data.data && data.data.attributes && data.data.attributes.level) {
       if (data.data.attributes.level.value > actor.data.data.attributes.level.value) {
-        actor.setFlag('dungeonworld', 'levelup', true);
+        actor.setFlag('brokenworlds', 'levelup', true);
       }
     }
   }
@@ -245,13 +245,13 @@ Hooks.on('renderDialog', (dialog, html, options) => {
  * @param {number} slot     The hotbar slot to use
  * @returns {Promise}
  */
-async function createDwMacro(data, slot) {
+async function createBwMacro(data, slot) {
   if (data.type !== "Item") return;
   if (!("data" in data)) return ui.notifications.warn("You can only create macro buttons for owned Items");
   const item = data.data;
 
   // Create the macro command
-  const command = `game.dungeonworld.rollItemMacro("${item.name}");`;
+  const command = `game.brokenworlds.rollItemMacro("${item.name}");`;
   let macro = game.macros.entities.find(m => (m.name === item.name) && (m.command === command));
   if (!macro) {
     macro = await Macro.create({
@@ -259,7 +259,7 @@ async function createDwMacro(data, slot) {
       type: "script",
       img: item.img,
       command: command,
-      flags: { "dungeonworld.itemMacro": true }
+      flags: { "brokenworlds.itemMacro": true }
     });
   }
   game.user.assignHotbarMacro(macro, slot);
