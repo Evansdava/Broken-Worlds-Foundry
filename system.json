@@ -1,0 +1,329 @@
+{
+  "name": "brokenworlds",
+  "title": "Broken Worlds",
+  "description": "The Broken Worlds system for FoundryVTT!",
+  "version": "beta4-0.6.2",
+  "minimumCoreVersion": "0.6.0",
+  "compatibleCoreVersion": "0.7.9",
+  "templateVersion": 2,
+  "author": "Asacolips, Vasid, Quileggen",
+  "esmodules": [
+    "module/brokenworlds.js"
+  ],
+  "styles": [
+    "styles/lib/tagify.css",
+    "styles/dist/brokenworlds.css"
+  ],
+  "scripts": [
+    "scripts/lib/tagify.min.js"
+  ],
+  "packs": [
+    {
+      "name": "classes",
+      "label": "Classes",
+      "system": "brokenworlds",
+      "path": "./packs/classes.db",
+      "entity": "Item"
+    },
+    {
+      "name": "basic-moves",
+      "label": "Basic Moves",
+      "system": "brokenworlds",
+      "path": "./packs/basic-moves.db",
+      "entity": "Item"
+    },
+    {
+      "name": "the-barbarian-moves",
+      "label": "The Barbarian Moves",
+      "system": "brokenworlds",
+      "path": "./packs/the-barbarian-moves.db",
+      "entity": "Item"
+    },
+    {
+      "name": "the-bard-moves",
+      "label": "The Bard Moves",
+      "system": "brokenworlds",
+      "path": "./packs/the-bard-moves.db",
+      "entity": "Item"
+    },
+    {
+      "name": "the-cleric-moves",
+      "label": "The Cleric Moves",
+      "system": "brokenworlds",
+      "path": "./packs/the-cleric-moves.db",
+      "entity": "Item"
+    },
+    {
+      "name": "the-cleric-spells",
+      "label": "The Cleric Spells",
+      "system": "brokenworlds",
+      "path": "./packs/the-cleric-spells.db",
+      "entity": "Item"
+    },
+    {
+      "name": "the-druid-moves",
+      "label": "The Druid Moves",
+      "system": "brokenworlds",
+      "path": "./packs/the-druid-moves.db",
+      "entity": "Item"
+    },
+    {
+      "name": "the-fighter-moves",
+      "label": "The Fighter Moves",
+      "system": "brokenworlds",
+      "path": "./packs/the-fighter-moves.db",
+      "entity": "Item"
+    },
+    {
+      "name": "the-immolator-moves",
+      "label": "The Immolator Moves",
+      "system": "brokenworlds",
+      "path": "./packs/the-immolator-moves.db",
+      "entity": "Item"
+    },
+    {
+      "name": "the-paladin-moves",
+      "label": "The Paladin Moves",
+      "system": "brokenworlds",
+      "path": "./packs/the-paladin-moves.db",
+      "entity": "Item"
+    },
+    {
+      "name": "the-ranger-moves",
+      "label": "The Ranger Moves",
+      "system": "brokenworlds",
+      "path": "./packs/the-ranger-moves.db",
+      "entity": "Item"
+    },
+    {
+      "name": "the-thief-moves",
+      "label": "The Thief Moves",
+      "system": "brokenworlds",
+      "path": "./packs/the-thief-moves.db",
+      "entity": "Item"
+    },
+    {
+      "name": "the-wizard-moves",
+      "label": "The Wizard Moves",
+      "system": "brokenworlds",
+      "path": "./packs/the-wizard-moves.db",
+      "entity": "Item"
+    },
+    {
+      "name": "the-wizard-spells",
+      "label": "The Wizard Spells",
+      "system": "brokenworlds",
+      "path": "./packs/the-wizard-spells.db",
+      "entity": "Item"
+    },
+    {
+      "name": "tags",
+      "label": "Tags",
+      "system": "brokenworlds",
+      "path": "./packs/tags.db",
+      "entity": "Item"
+    },
+    {
+      "name": "equipment-armor",
+      "label": "Equipment (Armor)",
+      "system": "brokenworlds",
+      "path": "./packs/equipment-armor.db",
+      "entity": "Item"
+    },
+    {
+      "name": "equipment-class",
+      "label": "Equipment (Class)",
+      "system": "brokenworlds",
+      "path": "./packs/equipment-class.db",
+      "entity": "Item"
+    },
+    {
+      "name": "equipment-gear",
+      "label": "Equipment (Gear)",
+      "system": "brokenworlds",
+      "path": "./packs/equipment-gear.db",
+      "entity": "Item"
+    },
+    {
+      "name": "equipment-magic",
+      "label": "Equipment (Magic)",
+      "system": "brokenworlds",
+      "path": "./packs/equipment-magic.db",
+      "entity": "Item"
+    },
+    {
+      "name": "equipment-poisons",
+      "label": "Equipment (Poisons)",
+      "system": "brokenworlds",
+      "path": "./packs/equipment-poisons.db",
+      "entity": "Item"
+    },
+    {
+      "name": "equipment-weapons",
+      "label": "Equipment (Weapons)",
+      "system": "brokenworlds",
+      "path": "./packs/equipment-weapons.db",
+      "entity": "Item"
+    },
+    {
+      "label": "Rollable Tables",
+      "entity": "RollTable",
+      "name": "rollable-tables",
+      "path": "packs/rollable-tables.db",
+      "system": "brokenworlds",
+      "package": "world",
+      "absPath": "./packs/rollable-tables.db"
+    },
+    {
+      "label": "GM Moves/Principals",
+      "entity": "JournalEntry",
+      "name": "gm-movesprincipals",
+      "path": "packs/gm-movesprincipals.db",
+      "system": "brokenworlds",
+      "package": "world",
+      "absPath": "./packs/gm-movesprincipals.db"
+    },
+    {
+      "label": "Charts",
+      "entity": "JournalEntry",
+      "name": "charts",
+      "path": "packs/charts.db",
+      "system": "brokenworlds",
+      "package": "world",
+      "absPath": "./packs/charts.db"
+    },
+    {
+      "label": "Monsters - 01 Cavern Dwellers",
+      "entity": "Actor",
+      "name": "monsters-01-cavern-dwellers",
+      "path": "packs/monsters-01-cavern-dwellers.db",
+      "system": "brokenworlds",
+      "package": "world",
+      "absPath": "./packs/monsters-01-cavern-dwellers.db"
+    },
+    {
+      "label": "Monsters - 02 Swamp Denizens",
+      "entity": "Actor",
+      "name": "monsters-02-swamp-denizens",
+      "path": "packs/monsters-02-swamp-denizens.db",
+      "system": "brokenworlds",
+      "package": "world",
+      "absPath": "./packs/monsters-02-swamp-denizens.db"
+    },
+    {
+      "label": "Monsters - 03 Undead Legions",
+      "entity": "Actor",
+      "name": "monsters-03-undead-legions",
+      "path": "packs/monsters-03-undead-legions.db",
+      "system": "brokenworlds",
+      "package": "world",
+      "absPath": "./packs/monsters-03-undead-legions.db"
+    },
+    {
+      "label": "Monsters - 04 Dark Woods",
+      "entity": "Actor",
+      "name": "monsters-04-dark-woods",
+      "path": "packs/monsters-04-dark-woods.db",
+      "system": "brokenworlds",
+      "package": "world",
+      "absPath": "./packs/monsters-04-dark-woods.db"
+    },
+    {
+      "label": "Monsters - 05 Ravenous Hordes",
+      "entity": "Actor",
+      "name": "monsters-05-ravenous-hordes",
+      "path": "packs/monsters-05-ravenous-hordes.db",
+      "system": "brokenworlds",
+      "package": "world",
+      "absPath": "./packs/monsters-05-ravenous-hordes.db"
+    },
+    {
+      "label": "Monsters - 06 Twisted Experiments",
+      "entity": "Actor",
+      "name": "monsters-06-twisted-experiments",
+      "path": "packs/monsters-06-twisted-experiments.db",
+      "system": "brokenworlds",
+      "package": "world",
+      "absPath": "./packs/monsters-06-twisted-experiments.db"
+    },
+    {
+      "label": "Monsters - 07 Lower Depths",
+      "entity": "Actor",
+      "name": "monsters-07-lower-depths",
+      "path": "packs/monsters-07-lower-depths.db",
+      "system": "brokenworlds",
+      "package": "world",
+      "absPath": "./packs/monsters-07-lower-depths.db"
+    },
+    {
+      "label": "Monsters - 08 Planar Powers",
+      "entity": "Actor",
+      "name": "monsters-08-planar-powers",
+      "path": "packs/monsters-08-planar-powers.db",
+      "system": "brokenworlds",
+      "package": "world",
+      "absPath": "./packs/monsters-08-planar-powers.db"
+    },
+    {
+      "label": "Monsters - 09 Folk of the Realm",
+      "entity": "Actor",
+      "name": "monsters-09-folk-of-the-realm",
+      "path": "packs/monsters-09-folk-of-the-realm.db",
+      "system": "brokenworlds",
+      "package": "world",
+      "absPath": "./packs/monsters-09-folk-of-the-realm.db"
+    },
+    {
+      "name": "gm-screen",
+      "label": "GM Screen",
+      "system": "brokenworlds",
+      "path": "./packs/gm-screen.db",
+      "entity": "JournalEntry"
+    },
+    {
+      "name": "macros",
+      "label": "Macros",
+      "system": "brokenworlds",
+      "path": "./packs/macros.db",
+      "entity": "Macro"
+    },
+    {
+      "name": "tables",
+      "label": "Tables",
+      "system": "brokenworlds",
+      "path": "./packs/tables.db",
+      "entity": "RollTable"
+    }
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "es",
+      "name": "Español",
+      "path": "lang/es.json"
+    },
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "lang/fr.json"
+    },
+    {
+      "lang": "de",
+      "name": "Deutsch",
+      "path": "lang/de.json"
+    }
+  ],
+  "gridDistance": 5,
+  "gridUnits": "ft",
+  "primaryTokenAttribute": "attributes.stamina",
+  "secondaryTokenAttribute": "attributes.wounds",
+  "initiative": "1d20",
+  "socket": true,
+  "url": "https://gitlab.com/asacolips-projects/foundry-mods/brokenworlds",
+  "manifest": "https://gitlab.com/asacolips-projects/foundry-mods/brokenworlds/raw/beta/system.json",
+  "download": "https://gitlab.com/asacolips-projects/foundry-mods/brokenworlds/-/archive/beta/brokenworlds-master.zip"
+}

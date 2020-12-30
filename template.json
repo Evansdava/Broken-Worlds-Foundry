@@ -1,0 +1,164 @@
+{
+  "Actor": {
+    "types": [
+      "character",
+      "npc"
+    ],
+    "templates": {
+      "base": {
+        "attributes": {
+          "stamina": {
+            "value": 3,
+            "min": 0,
+            "max": 3
+          },
+          "wounds": {
+            "value": 3,
+            "min": 0,
+            "max": 3
+          },
+          "armor": {
+            "value": 0,
+            "base": 0,
+            "min": 0
+          },
+          "damage": {
+            "value": "2",
+            "misc": "",
+            "piercing": ""
+          },
+          "level": {
+            "value": 1,
+            "min": 0,
+            "max": 10
+          },
+          "xp": {
+            "value": 0,
+            "min": 0
+          }
+        },
+        "details": {
+          "biography": ""
+        }
+      }
+    },
+    "character": {
+      "templates": [
+        "base"
+      ],
+      "attributes": {
+        "wealth": {
+          "value": 0
+        },
+        "forward": {
+          "value": 0
+        },
+        "hold": {
+          "value": 0
+        },
+        "ongoing": {
+          "value": 0
+        },
+        "resource1": {
+          "label": "Custom Resource",
+          "value": 0,
+          "max": 0
+        }
+      },
+      "abilities": {
+        "body": {
+          "value": 0,
+          "min": -3,
+          "mod": 0
+        },
+        "reflex": {
+          "value": 0,
+          "min": -3,
+          "mod": 0
+        },
+        "heat": {
+          "value": 0,
+          "min": -3,
+          "mod": 0
+        },
+        "breath": {
+          "value": 0,
+          "min": -3,
+          "mod": 0
+        },
+        "mind": {
+          "value": 0,
+          "min": -3,
+          "mod": 0
+        }
+      },
+      "details": {
+        "look": "",
+        "playsheet": "",
+        "race": {
+          "value": "",
+          "description": ""
+        }
+      }
+    },
+    "npc": {
+      "templates": [
+        "base"
+      ],
+      "tags": [],
+      "tagsString": ""
+    }
+  },
+  "Item": {
+    "types": [
+      "move",
+      "equipment",
+      "tag",
+      "class"
+    ],
+    "templates": {
+      "base": {
+        "name": "",
+        "description": ""
+      }
+    },
+    "move": {
+      "templates": [
+        "base"
+      ],
+      "class": "",
+      "rollType": "",
+      "rollMod": 0,
+      "requiresLevel": 0,
+      "requiresMove": "",
+      "moveType": null,
+      "moveGroup": ""
+    },
+    "equipment": {
+      "templates": [
+        "base"
+      ],
+      "class": "",
+      "quantity": 1,
+      "uses": 0,
+      "tags": [],
+      "tagsString": "",
+      "itemType": null,
+      "attributes": {}
+    },
+    "tag": {
+      "templates": [
+        "base"
+      ]
+    },
+    "class": {
+      "templates": [
+        "base"
+      ],
+      "races": [],
+      "alignments": [],
+      "equipment": {},
+      "hp": 3
+    }
+  }
+}
