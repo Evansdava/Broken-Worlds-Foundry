@@ -2,7 +2,7 @@
   "name": "brokenworlds",
   "title": "Broken Worlds",
   "description": "The Broken Worlds system for FoundryVTT!",
-  "version": "beta4-0.6.2",
+  "version": "0.0.1",
   "minimumCoreVersion": "0.6.0",
   "compatibleCoreVersion": "0.7.9",
   "templateVersion": 2,
@@ -323,7 +323,7 @@
   "secondaryTokenAttribute": "attributes.stamina",
   "initiative": "1d20",
   "socket": true,
-  "url": "https://gitlab.com/asacolips-projects/foundry-mods/brokenworlds",
-  "manifest": "https://gitlab.com/asacolips-projects/foundry-mods/brokenworlds/raw/beta/system.json",
-  "download": "https://gitlab.com/asacolips-projects/foundry-mods/brokenworlds/-/archive/beta/brokenworlds-master.zip"
+  "url": "https://github.com/Evansdava/Broken-Worlds-Foundry",
+  "manifest": "https://github.com/Evansdava/Broken-Worlds-Foundry/raw/master/system.json",
+  "download": "https://github.com/Evansdava/Broken-Worlds-Foundry/-/archive/master.zip"
 }
