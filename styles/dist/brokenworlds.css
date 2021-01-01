@@ -502,7 +502,8 @@
       overflow: hidden;
       -o-text-overflow: ellipsis;
       text-overflow: ellipsis; }
-  .vtt .sidebar-tab .ct-item--hp,
+  .vtt .sidebar-tab .ct-item--wounds,
+  .vtt .sidebar-tab .ct-item--stamina,
   .vtt .sidebar-tab .ct-item--armor {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 32px;
@@ -1098,12 +1099,12 @@
         -ms-flex: 1 1;
         flex: 1 1; }
     .brokenworlds.sheet .sheet-attributes .cell--armor,
-    .brokenworlds.sheet .sheet-attributes .cell--wounds,
     .brokenworlds.sheet .sheet-attributes .cell--stamina,
+    .brokenworlds.sheet .sheet-attributes .cell--wounds,
     .brokenworlds.sheet .sheet-attributes .cell--wealth,
     .brokenworlds.sheet .sheet-resources .cell--armor,
-    .brokenworlds.sheet .sheet-resources .cell--wounds,
     .brokenworlds.sheet .sheet-resources .cell--stamina,
+    .brokenworlds.sheet .sheet-resources .cell--wounds,
     .brokenworlds.sheet .sheet-resources .cell--wealth {
       grid-column: span 3; }
     .brokenworlds.sheet .sheet-attributes .cell--ongoing,
@@ -1280,24 +1281,21 @@
   .brokenworlds.sheet .cell--advanced-moves .items-list,
   .brokenworlds.sheet .cell--special-moves .items-list,
   .brokenworlds.sheet .cell--other-moves .items-list,
-  .brokenworlds.sheet .cell--equipment .items-list,
-  .brokenworlds.sheet .cell--spells .items-list {
+  .brokenworlds.sheet .cell--equipment .items-list {
     padding: 0; }
     .brokenworlds.sheet .cell--basic-moves .items-list .item,
     .brokenworlds.sheet .cell--starting-moves .items-list .item,
     .brokenworlds.sheet .cell--advanced-moves .items-list .item,
     .brokenworlds.sheet .cell--special-moves .items-list .item,
     .brokenworlds.sheet .cell--other-moves .items-list .item,
-    .brokenworlds.sheet .cell--equipment .items-list .item,
-    .brokenworlds.sheet .cell--spells .items-list .item {
+    .brokenworlds.sheet .cell--equipment .items-list .item {
       padding: 10px 0; }
   .brokenworlds.sheet .cell--basic-moves .item-name,
   .brokenworlds.sheet .cell--starting-moves .item-name,
   .brokenworlds.sheet .cell--advanced-moves .item-name,
   .brokenworlds.sheet .cell--special-moves .item-name,
   .brokenworlds.sheet .cell--other-moves .item-name,
-  .brokenworlds.sheet .cell--equipment .item-name,
-  .brokenworlds.sheet .cell--spells .item-name {
+  .brokenworlds.sheet .cell--equipment .item-name {
     font-size: 18px;
     font-weight: bold;
     -webkit-box-flex: 2;
@@ -1309,8 +1307,7 @@
     .brokenworlds.sheet .cell--advanced-moves .item-name .rollable,
     .brokenworlds.sheet .cell--special-moves .item-name .rollable,
     .brokenworlds.sheet .cell--other-moves .item-name .rollable,
-    .brokenworlds.sheet .cell--equipment .item-name .rollable,
-    .brokenworlds.sheet .cell--spells .item-name .rollable {
+    .brokenworlds.sheet .cell--equipment .item-name .rollable {
       display: inline-block;
       -webkit-transition: all ease-in-out 0.25s;
       -o-transition: all ease-in-out 0.25s;
@@ -1322,8 +1319,7 @@
       .brokenworlds.sheet .cell--advanced-moves .item-name .rollable:hover,
       .brokenworlds.sheet .cell--special-moves .item-name .rollable:hover,
       .brokenworlds.sheet .cell--other-moves .item-name .rollable:hover,
-      .brokenworlds.sheet .cell--equipment .item-name .rollable:hover,
-      .brokenworlds.sheet .cell--spells .item-name .rollable:hover {
+      .brokenworlds.sheet .cell--equipment .item-name .rollable:hover {
         -webkit-transform: scale(1.2);
         -ms-transform: scale(1.2);
         transform: scale(1.2); }
@@ -1332,8 +1328,7 @@
   .brokenworlds.sheet .cell--advanced-moves .item-controls,
   .brokenworlds.sheet .cell--special-moves .item-controls,
   .brokenworlds.sheet .cell--other-moves .item-controls,
-  .brokenworlds.sheet .cell--equipment .item-controls,
-  .brokenworlds.sheet .cell--spells .item-controls {
+  .brokenworlds.sheet .cell--equipment .item-controls {
     text-align: right;
     -webkit-box-flex: 0;
     -ms-flex: 0 0 40px;
@@ -1343,8 +1338,7 @@
   .brokenworlds.sheet .cell--advanced-moves .item-description,
   .brokenworlds.sheet .cell--special-moves .item-description,
   .brokenworlds.sheet .cell--other-moves .item-description,
-  .brokenworlds.sheet .cell--equipment .item-description,
-  .brokenworlds.sheet .cell--spells .item-description {
+  .brokenworlds.sheet .cell--equipment .item-description {
     display: none;
     -webkit-box-flex: 0;
     -ms-flex: none;
@@ -1355,8 +1349,7 @@
   .brokenworlds.sheet .cell--advanced-moves .item-icon,
   .brokenworlds.sheet .cell--special-moves .item-icon,
   .brokenworlds.sheet .cell--other-moves .item-icon,
-  .brokenworlds.sheet .cell--equipment .item-icon,
-  .brokenworlds.sheet .cell--spells .item-icon {
+  .brokenworlds.sheet .cell--equipment .item-icon {
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
@@ -1375,8 +1368,7 @@
   .brokenworlds.sheet .cell--advanced-moves .item-meta,
   .brokenworlds.sheet .cell--special-moves .item-meta,
   .brokenworlds.sheet .cell--other-moves .item-meta,
-  .brokenworlds.sheet .cell--equipment .item-meta,
-  .brokenworlds.sheet .cell--spells .item-meta {
+  .brokenworlds.sheet .cell--equipment .item-meta {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1395,24 +1387,21 @@
     .brokenworlds.sheet .cell--advanced-moves .item-meta > span,
     .brokenworlds.sheet .cell--special-moves .item-meta > span,
     .brokenworlds.sheet .cell--other-moves .item-meta > span,
-    .brokenworlds.sheet .cell--equipment .item-meta > span,
-    .brokenworlds.sheet .cell--spells .item-meta > span {
+    .brokenworlds.sheet .cell--equipment .item-meta > span {
       margin: 0; }
       .brokenworlds.sheet .cell--basic-moves .item-meta > span + span,
       .brokenworlds.sheet .cell--starting-moves .item-meta > span + span,
       .brokenworlds.sheet .cell--advanced-moves .item-meta > span + span,
       .brokenworlds.sheet .cell--special-moves .item-meta > span + span,
       .brokenworlds.sheet .cell--other-moves .item-meta > span + span,
-      .brokenworlds.sheet .cell--equipment .item-meta > span + span,
-      .brokenworlds.sheet .cell--spells .item-meta > span + span {
+      .brokenworlds.sheet .cell--equipment .item-meta > span + span {
         margin-left: 4px; }
   .brokenworlds.sheet .cell--basic-moves .item-label,
   .brokenworlds.sheet .cell--starting-moves .item-label,
   .brokenworlds.sheet .cell--advanced-moves .item-label,
   .brokenworlds.sheet .cell--special-moves .item-label,
   .brokenworlds.sheet .cell--other-moves .item-label,
-  .brokenworlds.sheet .cell--equipment .item-label,
-  .brokenworlds.sheet .cell--spells .item-label {
+  .brokenworlds.sheet .cell--equipment .item-label {
     border-left: 2px solid;
     padding-left: 4px; }
     .brokenworlds.sheet .cell--basic-moves .item-label::after,
@@ -1420,8 +1409,7 @@
     .brokenworlds.sheet .cell--advanced-moves .item-label::after,
     .brokenworlds.sheet .cell--special-moves .item-label::after,
     .brokenworlds.sheet .cell--other-moves .item-label::after,
-    .brokenworlds.sheet .cell--equipment .item-label::after,
-    .brokenworlds.sheet .cell--spells .item-label::after {
+    .brokenworlds.sheet .cell--equipment .item-label::after {
       display: block;
       content: '';
       width: 0;
@@ -1436,16 +1424,14 @@
     .brokenworlds.sheet .cell--advanced-moves .item-label:hover::after,
     .brokenworlds.sheet .cell--special-moves .item-label:hover::after,
     .brokenworlds.sheet .cell--other-moves .item-label:hover::after,
-    .brokenworlds.sheet .cell--equipment .item-label:hover::after,
-    .brokenworlds.sheet .cell--spells .item-label:hover::after {
+    .brokenworlds.sheet .cell--equipment .item-label:hover::after {
       width: 100%; }
     .brokenworlds.sheet .cell--basic-moves .item-label:hover .item-details-toggle,
     .brokenworlds.sheet .cell--starting-moves .item-label:hover .item-details-toggle,
     .brokenworlds.sheet .cell--advanced-moves .item-label:hover .item-details-toggle,
     .brokenworlds.sheet .cell--special-moves .item-label:hover .item-details-toggle,
     .brokenworlds.sheet .cell--other-moves .item-label:hover .item-details-toggle,
-    .brokenworlds.sheet .cell--equipment .item-label:hover .item-details-toggle,
-    .brokenworlds.sheet .cell--spells .item-label:hover .item-details-toggle {
+    .brokenworlds.sheet .cell--equipment .item-label:hover .item-details-toggle {
       -webkit-transform: scale(1.2);
       -ms-transform: scale(1.2);
       transform: scale(1.2); }
@@ -1454,8 +1440,7 @@
     .brokenworlds.sheet .cell--advanced-moves .item-label .fas,
     .brokenworlds.sheet .cell--special-moves .item-label .fas,
     .brokenworlds.sheet .cell--other-moves .item-label .fas,
-    .brokenworlds.sheet .cell--equipment .item-label .fas,
-    .brokenworlds.sheet .cell--spells .item-label .fas {
+    .brokenworlds.sheet .cell--equipment .item-label .fas {
       -webkit-transition: all ease-in-out 0.25s;
       -o-transition: all ease-in-out 0.25s;
       transition: all ease-in-out 0.25s; }
@@ -1464,16 +1449,14 @@
     .brokenworlds.sheet .cell--advanced-moves .item-label.open::after,
     .brokenworlds.sheet .cell--special-moves .item-label.open::after,
     .brokenworlds.sheet .cell--other-moves .item-label.open::after,
-    .brokenworlds.sheet .cell--equipment .item-label.open::after,
-    .brokenworlds.sheet .cell--spells .item-label.open::after {
+    .brokenworlds.sheet .cell--equipment .item-label.open::after {
       width: 100%; }
     .brokenworlds.sheet .cell--basic-moves .item-label.open .fas,
     .brokenworlds.sheet .cell--starting-moves .item-label.open .fas,
     .brokenworlds.sheet .cell--advanced-moves .item-label.open .fas,
     .brokenworlds.sheet .cell--special-moves .item-label.open .fas,
     .brokenworlds.sheet .cell--other-moves .item-label.open .fas,
-    .brokenworlds.sheet .cell--equipment .item-label.open .fas,
-    .brokenworlds.sheet .cell--spells .item-label.open .fas {
+    .brokenworlds.sheet .cell--equipment .item-label.open .fas {
       -webkit-transform: rotate(180deg);
       -ms-transform: rotate(180deg);
       transform: rotate(180deg); }
@@ -1482,8 +1465,7 @@
   .brokenworlds.sheet .cell--advanced-moves .item-details-toggle,
   .brokenworlds.sheet .cell--special-moves .item-details-toggle,
   .brokenworlds.sheet .cell--other-moves .item-details-toggle,
-  .brokenworlds.sheet .cell--equipment .item-details-toggle,
-  .brokenworlds.sheet .cell--spells .item-details-toggle {
+  .brokenworlds.sheet .cell--equipment .item-details-toggle {
     display: inline-block;
     width: 24px;
     height: 16px;
@@ -1502,14 +1484,10 @@
   .brokenworlds.sheet .cell--other-moves .rollable:hover,
   .brokenworlds.sheet .cell--other-moves .rollable:focus,
   .brokenworlds.sheet .cell--equipment .rollable:hover,
-  .brokenworlds.sheet .cell--equipment .rollable:focus,
-  .brokenworlds.sheet .cell--spells .rollable:hover,
-  .brokenworlds.sheet .cell--spells .rollable:focus {
+  .brokenworlds.sheet .cell--equipment .rollable:focus {
     color: #5b7094;
     text-shadow: 0 0 5px rgba(91, 112, 148, 0.25);
     cursor: pointer; }
-  .brokenworlds.sheet .cell--spells .unprepared {
-    background-color: #ffe9e9; }
   .brokenworlds.sheet .sheet-look .cell__title {
     font-size: 14px;
     margin: 20px 0 0;
@@ -1554,8 +1532,8 @@
     gap: 0px 10px;
     margin: 0 0 10px 0;
     padding: 0; }
-    .brokenworlds.sheet.npc .sheet-attributes .cell--ac,
-    .brokenworlds.sheet.npc .sheet-attributes .cell--hp {
+    .brokenworlds.sheet.npc .sheet-attributes .cell--armor,
+    .brokenworlds.sheet.npc .sheet-attributes .cell--wounds {
       grid-column: span 1; }
     .brokenworlds.sheet.npc .sheet-attributes .cell--tags {
       grid-column: span 4; }
