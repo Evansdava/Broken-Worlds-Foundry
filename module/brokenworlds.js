@@ -24,7 +24,7 @@ import { MigrateBw } from "./migrate/migrate.js";
 /* -------------------------------------------- */
 
 Hooks.once("init", async function() {
-  console.log(`Initializing Dungeon World!`);
+  console.log(`Initializing Broken Worlds!`);
 
   game.brokenworlds = {
     ActorBw,
