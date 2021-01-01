@@ -2,14 +2,14 @@
 
 1. Go to the setup page and choose **Game Systems**.
 2. Click the **Install System** button, and paste in this manifest link:
-    * Foundry 0.5.x: [https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld/raw/master/system.json](https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld/raw/master/system.json)
-3. Create a Game World using the Dungeon World system.
+    * Foundry 0.5.x: [https://github.com/Evansdava/Broken-Worlds-Foundry/raw/master/system.json](https://github.com/Evansdava/Broken-Worlds-Foundry/raw/master/system.json)
+3. Create a Game World using the Broken Worlds system.
 
 Compatible with FoundryVTT 0.3.x
 
 # Description
 
-Build campaigns in the Dungeon World RPG using Foundry VTT!
+Build campaigns in the Broken Worlds RPG using Foundry VTT!
 
 ## Character Sheet
 ![character sheet](https://mattsmithin.nyc3.digitaloceanspaces.com/assets/dw-0.3.0.png)
@@ -31,5 +31,5 @@ Token artwork created by [Forgotten Adventures](https://www.forgotten-adventures
 
 Compendium content is licensed under the Creative Commons Attribution 3.0 Unported License. To view a copy of this license, visit http://creativecommons.org/licenses/by/3.0/ or send a letter to Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.
 
-In addition, the compendium content uses the OPEN GAME LICENSE Version 1.0a. See the [LICENSE-COMPENDIUM.txt](https://gitlab.com/asacolips-projects/foundry-mods/dungeonworld/-/raw/master/LICENSE-COMPENDIUM.txt) file for additional details.
+In addition, the compendium content uses the OPEN GAME LICENSE Version 1.0a. See the [LICENSE-COMPENDIUM.txt](https://github.com/Evansdava/Broken-Worlds-Foundry/-/raw/master/LICENSE-COMPENDIUM.txt) file for additional details.
 
