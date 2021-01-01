@@ -1,7 +1,7 @@
 {
-  "name": "dungeonworld",
-  "version": "1.0.0",
-  "description": "CSS compiler for the Dungeon World system",
+  "name": "brokenworlds",
+  "version": "0.1.0",
+  "description": "CSS compiler for the Broken Worlds system",
   "scripts": {
     "build": "gulp yaml & gulp css",
     "compile": "gulp css",
