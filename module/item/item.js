@@ -1,6 +1,6 @@
 import { BwUtility } from "../utility.js";
 
-export class ItemDw extends Item {
+export class ItemBw extends Item {
   /**
    * Augment the basic Item data model with additional dynamic data.
    */
