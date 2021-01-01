@@ -1,20 +1,25 @@
+---
 Actor:
   types:
-    - character
-    - npc
+  - character
+  - npc
   templates:
     base:
       attributes:
-        hp:
-          value: 10
+        stamina:
+          value: 3
           min: 0
-          max: 10
-        ac:
+          max: 3
+        wounds:
+          value: 3
+          min: 0
+          max: 3
+        armor:
           value: 0
           base: 0
           min: 0
         damage:
-          value: d6
+          value: '2'
           misc: ''
           piercing: ''
         level:
@@ -28,12 +33,9 @@ Actor:
         biography: ''
   character:
     templates:
-      - base
+    - base
     attributes:
-      weight:
-        value: 0
-        max: 1
-      coin:
+      wealth:
         value: 0
       forward:
         value: 0
@@ -46,40 +48,27 @@ Actor:
         value: 0
         max: 0
     abilities:
-      str:
-        value: 10
-        min: 3
+      body:
+        value: 0
+        min: -3
         mod: 0
-        debility: false
-      dex:
-        value: 10
-        min: 3
+      reflex:
+        value: 0
+        min: -3
         mod: 0
-        debility: false
-      con:
-        value: 10
-        min: 3
+      heat:
+        value: 0
+        min: -3
         mod: 0
-        debility: false
-      int:
-        value: 10
-        min: 3
+      breath:
+        value: 0
+        min: -3
         mod: 0
-        debility: false
-      wis:
-        value: 10
-        min: 3
+      mind:
+        value: 0
+        min: -3
         mod: 0
-        debility: false
-      cha:
-        value: 10
-        min: 3
-        mod: 0
-        debility: false
     details:
-      alignment:
-        value: ''
-        description: ''
       look: ''
       class: ''
       race:
@@ -87,24 +76,27 @@ Actor:
         description: ''
   npc:
     templates:
-      - base
+    - base
+    attributes:
+      Threat:
+        value: 0
+        base: 0
+        min: 0
     tags: []
     tagsString: ''
 Item:
   types:
-    - move
-    - equipment
-    - spell
-    - bond
-    - tag
-    - class
+  - move
+  - equipment
+  - tag
+  - class
   templates:
     base:
       name: ''
       description: ''
   move:
     templates:
-      - base
+    - base
     class: ''
     rollType: ''
     rollMod: 0
@@ -114,33 +106,20 @@ Item:
     moveGroup: ''
   equipment:
     templates:
-      - base
+    - base
     class: ''
     quantity: 1
-    weight: 0
     uses: 0
     tags: []
     tagsString: ''
-    magic: false
     itemType:
     attributes: {}
-  spell:
-    templates:
-      - base
-    spellLevel: 0
-    rollFormula: ''
-    prepared: false
-  bond:
-    templates:
-      - base
   tag:
     templates:
-      - base
+    - base
   class:
     templates:
-      - base
+    - base
     races: []
-    alignments: []
     equipment: {}
-    hp: 10
-    load: 6
+    hp: 3
