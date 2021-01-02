@@ -207,9 +207,6 @@ export class BwActorSheet extends ActorSheet {
     // Moves
     html.find('.item-label').click(this._showItemDetails.bind(this));
 
-    // Spells.
-    html.find('.prepared').click(this._onPrepareSpell.bind(this));
-
     // Resources.
     html.find('.resource-control').click(this._onResouceControl.bind(this));
 
@@ -281,9 +278,11 @@ export class BwActorSheet extends ActorSheet {
   }
 
   async _onLevelUp(event) {
+    console.log("Started Level Up")
     event.preventDefault();
 
     if ($(event.currentTarget).hasClass('disabled-level-up')) {
+      console.log("Level Up Disabled")
       return;
     }
 
