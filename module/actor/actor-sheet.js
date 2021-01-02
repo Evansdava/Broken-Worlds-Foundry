@@ -400,7 +400,7 @@ export class BwActorSheet extends ActorSheet {
     let starting_move_groups = [];
     if (char_level < 2) {
       starting_moves = moves.filter(m => {
-        return m.data.data.requiresLevel < 2;
+        return m.data.data.moveType == "starting";
       });
 
       starting_move_groups = starting_moves.reduce((groups, move) => {
