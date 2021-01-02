@@ -400,7 +400,7 @@ export class BwActorSheet extends ActorSheet {
     let starting_move_groups = [];
     if (char_level < 2) {
       starting_moves = moves.filter(m => {
-        return m.data.data.moveType == "starting";
+        return m.data.data.moveType === "starting";
       });
 
       starting_move_groups = starting_moves.reduce((groups, move) => {
@@ -416,11 +416,11 @@ export class BwActorSheet extends ActorSheet {
     }
 
     let advanced_moves_2 = moves.filter(m => {
-      return m.data.data.requiresLevel >= 2 && m.data.data.requiresLevel < 6;
+      return m.data.data.moveType === "advanced";
     });
 
     let advanced_moves_6 = moves.filter(m => {
-      return m.data.data.requiresLevel >= 6;
+      return m.data.data.moveType === "advanced";
     });
 
     // Build the content.
