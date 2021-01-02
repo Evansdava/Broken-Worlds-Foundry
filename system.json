@@ -19,10 +19,10 @@
   ],
   "packs": [
     {
-      "name": "classes",
-      "label": "Classes",
+      "name": "armor",
+      "label": "Armor",
       "system": "brokenworlds",
-      "path": "./packs/classes.db",
+      "path": "./packs/armor.db",
       "entity": "Item"
     },
     {
@@ -33,108 +33,10 @@
       "entity": "Item"
     },
     {
-      "name": "special-moves",
-      "label": "Utility Moves",
+      "name": "classes",
+      "label": "Classes",
       "system": "brokenworlds",
-      "path": "./packs/special-moves.db",
-      "entity": "Item"
-    },
-    {
-      "name": "the-barbarian-moves",
-      "label": "The Barbarian Moves",
-      "system": "brokenworlds",
-      "path": "./packs/the-barbarian-moves.db",
-      "entity": "Item"
-    },
-    {
-      "name": "the-bard-moves",
-      "label": "The Bard Moves",
-      "system": "brokenworlds",
-      "path": "./packs/the-bard-moves.db",
-      "entity": "Item"
-    },
-    {
-      "name": "the-cleric-moves",
-      "label": "The Cleric Moves",
-      "system": "brokenworlds",
-      "path": "./packs/the-cleric-moves.db",
-      "entity": "Item"
-    },
-    {
-      "name": "the-cleric-spells",
-      "label": "The Cleric Spells",
-      "system": "brokenworlds",
-      "path": "./packs/the-cleric-spells.db",
-      "entity": "Item"
-    },
-    {
-      "name": "the-druid-moves",
-      "label": "The Druid Moves",
-      "system": "brokenworlds",
-      "path": "./packs/the-druid-moves.db",
-      "entity": "Item"
-    },
-    {
-      "name": "the-fighter-moves",
-      "label": "The Fighter Moves",
-      "system": "brokenworlds",
-      "path": "./packs/the-fighter-moves.db",
-      "entity": "Item"
-    },
-    {
-      "name": "the-immolator-moves",
-      "label": "The Immolator Moves",
-      "system": "brokenworlds",
-      "path": "./packs/the-immolator-moves.db",
-      "entity": "Item"
-    },
-    {
-      "name": "the-paladin-moves",
-      "label": "The Paladin Moves",
-      "system": "brokenworlds",
-      "path": "./packs/the-paladin-moves.db",
-      "entity": "Item"
-    },
-    {
-      "name": "the-ranger-moves",
-      "label": "The Ranger Moves",
-      "system": "brokenworlds",
-      "path": "./packs/the-ranger-moves.db",
-      "entity": "Item"
-    },
-    {
-      "name": "the-thief-moves",
-      "label": "The Thief Moves",
-      "system": "brokenworlds",
-      "path": "./packs/the-thief-moves.db",
-      "entity": "Item"
-    },
-    {
-      "name": "the-wizard-moves",
-      "label": "The Wizard Moves",
-      "system": "brokenworlds",
-      "path": "./packs/the-wizard-moves.db",
-      "entity": "Item"
-    },
-    {
-      "name": "the-wizard-spells",
-      "label": "The Wizard Spells",
-      "system": "brokenworlds",
-      "path": "./packs/the-wizard-spells.db",
-      "entity": "Item"
-    },
-    {
-      "name": "tags",
-      "label": "Tags",
-      "system": "brokenworlds",
-      "path": "./packs/tags.db",
-      "entity": "Item"
-    },
-    {
-      "name": "armor",
-      "label": "Armor",
-      "system": "brokenworlds",
-      "path": "./packs/armor.db",
+      "path": "./packs/classes.db",
       "entity": "Item"
     },
     {
@@ -145,6 +47,13 @@
       "entity": "Item"
     },
     {
+      "name": "Ammunition and Explosives",
+      "label": "Ammunition and Explosives",
+      "system": "brokenworlds",
+      "path": "./packs/explosives-and-ammo.db",
+      "entity": "Item"
+    },
+    {
       "name": "gear",
       "label": "Gear",
       "system": "brokenworlds",
@@ -152,10 +61,80 @@
       "entity": "Item"
     },
     {
-      "name": "Ammunition and Explosives",
-      "label": "Ammunition and Explosives",
+      "name": "tags",
+      "label": "Tags",
       "system": "brokenworlds",
-      "path": "./packs/explosives-and-ammo.db",
+      "path": "./packs/tags.db",
+      "entity": "Item"
+    },
+    {
+      "name": "special-moves",
+      "label": "Utility Moves",
+      "system": "brokenworlds",
+      "path": "./packs/special-moves.db",
+      "entity": "Item"
+    },
+    {
+      "name": "the-fated-moves",
+      "label": "The Fated Moves",
+      "system": "brokenworlds",
+      "path": "./packs/the-fated-moves.db",
+      "entity": "Item"
+    },
+    {
+      "name": "the-master-moves",
+      "label": "The Master Moves",
+      "system": "brokenworlds",
+      "path": "./packs/the-master-moves.db",
+      "entity": "Item"
+    },
+    {
+      "name": "the-beggar-moves",
+      "label": "The Beggar Moves",
+      "system": "brokenworlds",
+      "path": "./packs/the-beggar-moves.db",
+      "entity": "Item"
+    },
+    {
+      "name": "the-fury-moves",
+      "label": "The Fury Moves",
+      "system": "brokenworlds",
+      "path": "./packs/the-fury-moves.db",
+      "entity": "Item"
+    },
+    {
+      "name": "the-law-moves",
+      "label": "The Law Moves",
+      "system": "brokenworlds",
+      "path": "./packs/the-law-moves.db",
+      "entity": "Item"
+    },
+    {
+      "name": "the-boss-moves",
+      "label": "The Boss Moves",
+      "system": "brokenworlds",
+      "path": "./packs/the-boss-moves.db",
+      "entity": "Item"
+    },
+    {
+      "name": "the-refined-moves",
+      "label": "The Refined Moves",
+      "system": "brokenworlds",
+      "path": "./packs/the-refined-moves.db",
+      "entity": "Item"
+    },
+    {
+      "name": "the-hunter-moves",
+      "label": "The Hunter Moves",
+      "system": "brokenworlds",
+      "path": "./packs/the-hunter-moves.db",
+      "entity": "Item"
+    },
+    {
+      "name": "the-hunger-moves",
+      "label": "The Hunger Moves",
+      "system": "brokenworlds",
+      "path": "./packs/the-hunger-moves.db",
       "entity": "Item"
     },
     {
