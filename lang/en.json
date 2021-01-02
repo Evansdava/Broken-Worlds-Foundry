@@ -90,7 +90,7 @@
   "BW.SpecialQualities": "Special Qualities",
   "BW.ClassSettings": "Class settings",
   "BW.ClassBaseWounds": "Base Wounds",
-  "BW.ClassBaseWoundsHelp": "",
+  "BW.ClassBaseWoundsHelp": " ",
   "BW.ClassBaseStamina": "Base max Stamina",
   "BW.ClassBaseStaminaHelp": "Breath will automatically be added to this number.",
   "BW.ClassDamage": "Damage",
