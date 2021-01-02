@@ -113,6 +113,8 @@ export class BwActorSheet extends ActorSheet {
     // Iterate through items, allocating to containers
     // let totalWeight = 0;
     for (let i of sheetData.items) {
+      console.log(i)
+      console.log(i.type)
       let item = i.data;
       i.img = i.img || DEFAULT_TOKEN;
       // If this is a move, sort into various arrays.
