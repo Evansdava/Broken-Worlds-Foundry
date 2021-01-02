@@ -419,9 +419,9 @@ export class BwActorSheet extends ActorSheet {
       return m.data.data.moveType === "advanced";
     });
 
-    let advanced_moves_6 = moves.filter(m => {
-      return m.data.data.moveType === "advanced";
-    });
+    // let advanced_moves_6 = moves.filter(m => {
+    //   return m.data.data.moveType === "advanced";
+    // });
 
     // Build the content.
     const template = 'systems/brokenworlds/templates/dialog/level-up.html';
@@ -436,7 +436,7 @@ export class BwActorSheet extends ActorSheet {
       starting_moves: starting_moves.length > 0 ? starting_moves : null,
       starting_move_groups: starting_move_groups,
       advanced_moves_2: advanced_moves_2.length > 0 ? advanced_moves_2 : null,
-      advanced_moves_6: advanced_moves_6.length > 0 ? advanced_moves_6 : null,
+      // advanced_moves_6: advanced_moves_6.length > 0 ? advanced_moves_6 : null,
     };
     const html = await renderTemplate(template, templateData);
 
