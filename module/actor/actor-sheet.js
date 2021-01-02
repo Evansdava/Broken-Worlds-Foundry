@@ -115,6 +115,7 @@ export class BwActorSheet extends ActorSheet {
     for (let i of sheetData.items) {
       console.log(i)
       console.log(i.type)
+      console.log(i.data.moveType)
       let item = i.data;
       i.img = i.img || DEFAULT_TOKEN;
       // If this is a move, sort into various arrays.
