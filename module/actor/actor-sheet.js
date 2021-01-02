@@ -415,7 +415,11 @@ export class BwActorSheet extends ActorSheet {
       }, {});
     }
 
-    let advanced_moves = moves.filter(m => {
+    let advanced_moves_2 = moves.filter(m => {
+      return m.data.data.moveType == "advanced";
+    });
+
+    let advanced_moves_6 = moves.filter(m => {
       return m.data.data.moveType == "advanced";
     });
 
@@ -431,7 +435,8 @@ export class BwActorSheet extends ActorSheet {
       ability_labels: ability_labels ? ability_labels : null,
       starting_moves: starting_moves.length > 0 ? starting_moves : null,
       starting_move_groups: starting_move_groups,
-      advanced_moves: advanced_moves.length > 0 ? advanced_moves : null,
+      advanced_moves_2: advanced_moves_2.length > 0 ? advanced_moves_2 : null,
+      advanced_moves_6: advanced_moves_6.length > 0 ? advanced_moves_6 : null,
     };
     const html = await renderTemplate(template, templateData);
 
