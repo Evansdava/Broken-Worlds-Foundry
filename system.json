@@ -61,6 +61,13 @@
       "entity": "Item"
     },
     {
+      "name": "npc-tags",
+      "label": "NPC Tags",
+      "system": "brokenworlds",
+      "path": "./packs/npc-tags.db",
+      "entity": "Item"
+    },
+    {
       "name": "tags",
       "label": "Tags",
       "system": "brokenworlds",
